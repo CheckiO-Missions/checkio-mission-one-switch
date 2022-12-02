@@ -11,65 +11,65 @@ TESTS = {
     "Basics": [
         {
             "input": ["btry", "byrt"],
-            "answer": True
+            "answer": True,
         },
         {
             "input": ["boss", "boss"],
-            "answer": True
+            "answer": True,
         },
         {
             "input": ["solid", "disel"],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ["false", "flaes"],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ["true", "treu"],
-            "answer": True
-        }
+            "answer": True,
+        },
     ],
     "Extra": [
         {
             "input": ["race", "care"],
-            "answer": True
+            "answer": True,
         },
         {
             "input": ["knee", "keen"],
-            "answer": True
+            "answer": True,
         },
         {
             "input": ["trap", "part"],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ["adkglaigrbosudfbklabsdlkgalkkfndah", "adkglaigrbosudfbllabsdlkgakkkfndah"],
-            "answer": True
+            "answer": True,
         },
         {
             "input": ["adkglaigrbosudfbklabsdlkgalkkfndah", "adkglaogrbisudlbkfabsdlkgalkkfndah"],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ["abracadabra", "badaboom"],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ["bodep", "bopep"],
-            "answer": False
+            "answer": False,
         },
         {
             "input": [ "badaboomz", "badaboom"],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ["fox", "fox"],
-            "answer": True
+            "answer": True,
         },
         {
             "input": ["burx", "byrt"],
-            "answer": False
-        }
+            "answer": False,
+        },
     ]
 }
