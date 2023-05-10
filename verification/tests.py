@@ -71,5 +71,9 @@ TESTS = {
             "input": ["burx", "byrt"],
             "answer": False,
         },
+        {
+            "input": ["boss", "bobs"],
+            "answer": False,
+        },
     ]
 }
