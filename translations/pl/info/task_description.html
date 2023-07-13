@@ -1,0 +1,26 @@
+<p style="text-align: justify;">
+    Platforma CheckiO ma podobną misję <a target="_blank" href='https://py.checkio.org/en/mission/verify-anagrams/'>Verify Anagrams</a>,
+    ale w niej muszą Państwo określić, czy słowa są anagramami. W tej misji zadanie będzie nieco inne. Otrzymują Państwo dwa
+    i trzeba określić, czy można zamienić dwie litery w pierwszym ciągu, aby uzyskać drugi ciąg. Jeśli tak (lub słowa są takie same) - proszę zwrócić
+    proszę wrócić <b>{% if is_js %}t{% else %}T{% endif %}rue</b>, jeśli nie - <b>{% if is_js %}f{% else %}F{% endif %}alse</b>.
+</p>
+<p>
+    Na przykład, ciąg <b>"btry"</b>, jeśli zamienimy <b>y</b> i <b>t</b>, otrzymamy 
+   <b>"byrt"</b>.
+</p>
+
+<p><strong>Dane wejściowe:</strong> Dwa ciągi znaków <span>(str{% if is_js %}ing{% endif %})</span>.</p>
+
+<p><strong>Wyjście:</strong> Wartość logiczna <span>(bool{% if is_js %}ean{% endif %})</span>.</p>
+
+
+
+<div class="for_info_only">
+    <p><strong>Przykłady:</strong></p>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+</div>
+<p><strong>Warunki wstępne:</strong></p>
+    <li>Wszystkie litery są małe;</li>
+    <li>Tylko litery.</li>
+</p>
