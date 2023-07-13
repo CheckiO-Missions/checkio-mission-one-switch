@@ -1,0 +1,94 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission.
+    </div>
+    <div class="answer">
+        <p>
+            Catch an idea 💡! You need to build a sequence of pairs of characters at the same index and keep only pairs of different characters. There must be only two palindromic pairs to be one switch strings.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, what should I start from?
+    </div>
+    <div class="answer">
+        <p>
+            According to the description, equal strings are considered as one switch strings. You also may notice, that switching doesn't change the length of the strings, so if the given strings have different length - they are definitely not one switch strings. Let's right it using <b class="code">if</b> statement.
+        </p>
+        <pre class="brush: python">
+if line == result:
+    return True
+if len(line) != len(result):
+    return False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        It cuts some cases! What to do next?
+    </div>
+    <div class="answer">
+        <p>
+            Now you need to build a sequence of pairs of characters at the same index. There is a dedicated built-in function for this: <a target="_blank" href="https://www.w3schools.com/python/ref_func_zip.asp">zip()</a>. Iterate over the sequence using <a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for</a> loop, assigning each element of pair to the different variable.
+        </p>
+        <pre class="brush: python">
+for a, b in zip(line, result)
+        </pre>
+        <p>
+            From this sequence you need to keep only pairs where elements are not equal. Both these elements are strings, so let's also concatenate them into single string and use this expression as <a target="_blank" href="https://www.w3schools.com/python/python_lists_comprehension.asp">list comprehension</a>.
+        </p>
+        <pre class="brush: python">
+diff = [a + b for a, b in zip(line, result) if a != b]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Help me to finish the mission.
+    </div>
+    <div class="answer">
+        <p>
+            Let's think about what <b class="code">diff</b> must be in case of one switch strings. If it's only one switch, than <b class="code">diff</b> must have only two pairs of characters and these pairs must be the same but with opposite order of characters: if in one place of strings there is "b" instead of "a" (concatenated pair "ba"), than in some other place there is an opposite position "a" instead of "b". Let's write it in a following way.
+        </p>
+        <pre class="brush: python">
+return len(diff) == 2 and diff[0] == diff[1][::-1]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        So, how my final solution should look like?
+    </div>
+    <div class="answer">
+        <p>
+            You just need to join all previous hints and wrap your code into function expression. Using type hints for input and output data are highly recommended.
+        </p>
+        <p>Here is the whole solution:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def switch_strings(line: str, result: str) -> bool:
+
+    if line == result:
+        return True
+    if len(line) != len(result):
+        return False
+    
+    diff = [a + b for a, b in zip(line, result) if a != b]
+        
+    return len(diff) == 2 and diff[0] == diff[1][::-1]
+        </pre>
+        </div>
+        <p>Click <b>Best Solutions</b> at mission menu and see a lot of other interesting solutions!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Thanks! I know and understand more now! Everything works fine!
+    </div>
+    <div class="answer">
+        Glad to hear it 👍!
+    </div>
+</div>
+</body>
