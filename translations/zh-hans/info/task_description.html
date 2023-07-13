@@ -1,0 +1,26 @@
+<p style="text-align: justify;">
+    CheckiO平台有一个类似的任务<a target="_blank" href='https://py.checkio.org/en/mission/verify-anagrams/'>Verify Anagrams</a> 、
+    但在这个任务中，您必须确定单词是否是同义词。在本任务中，任务将略有不同。给您两个字符串
+    字符串，您需要确定是否可以交换第一个字符串中的两个字母来得到第二个字符串。如果可以（或者单词相同）- 则
+    返回 <b>{% if is_js %}t{% else %}T{% endif %}rue</b>如果不能 <b>{% if is_js %}f{% else %}F{% endif %}alse</b>.
+</p>
+<p>
+    例如，字符串<b>"btry"</b>, 如果我们交换<b>y</b> 和<b>t</b>, 我们得到 
+   <b>"byrt"</b>.
+</p>
+
+<p><strong>输入：</strong>两个字符串 <span>(str{% if is_js %}ing{% endif %})</span>.</p>
+
+<p><strong>输出：</strong>逻辑值 <span>(bool{% if is_js %}ean{% endif %})</span>.</p>
+
+
+
+<div class="for_info_only">
+    <p><strong>示例：</strong></p>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+</div>
+<p><strong>前提条件：</strong></p>
+    <li>所有字母小写；</li>
+    <li>仅字母。</li>
+</p>

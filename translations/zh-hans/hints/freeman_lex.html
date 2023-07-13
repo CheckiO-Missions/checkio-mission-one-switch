@@ -1,0 +1,94 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        我不知道如何开始解决这项任务。
+    </div>
+    <div class="answer">
+        <p>
+            给你个建议💡！您需要建立一个相同索引的字符对序列，并且只保留不同的字符对。必须只有两个同位对才是一个开关字符串。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        好吧，我应该从什么开始呢？
+    </div>
+    <div class="answer">
+        <p>
+            根据描述，相等的琴弦被认为是单开关琴弦。您可能还注意到，切换不会改变字符串的长度，因此如果给定的字符串长度不同，它们肯定不是一个切换字符串。让我们使用<b class="code">if</b> 语句来解决这个问题。
+        </p>
+        <pre class="brush: python">
+if line == result:
+    return True
+if len(line)!= len(result):
+    return False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        它切断了一些情况！下一步做什么？
+    </div>
+    <div class="answer">
+        <p>
+            现在，您需要建立一个相同索引的字符对序列。为此有一个专门的内置函数：<a target="_blank" href="https://www.w3schools.com/python/ref_func_zip.asp">zip()</a> 。使用<a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for</a> 循环遍历序列，将字符对中的每个元素赋值给不同的变量。
+        </p>
+        <pre class="brush: python">
+for a, b in zip(line, result)
+        </pre>
+        <p>
+            在这个序列中，您只需要保留元素不相等的字符对。这两个元素都是字符串，所以我们也将它们连接成一个字符串，并使用此表达式作为<a target="_blank" href="https://www.w3schools.com/python/python_lists_comprehension.asp">list comprehension</a> 。
+        </p>
+        <pre class="brush: python">
+diff = [a + b for a, b in zip(line, result) if a!= b]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        帮助我完成任务。
+    </div>
+    <div class="answer">
+        <p>
+            让我们考虑一下，如果只有一个开关字符串，<b class="code">diff</b> 。如果只有一个开关，那么<b class="code">diff</b> 必须只有两对字符，而且这两对字符必须相同，但字符顺序相反：如果在字符串的一个位置有 "b "而不是 "a"（连接对 "ba"），那么在另一个位置有相反的 "a "而不是 "b"。让我们用下面的方式来写。
+        </p>
+        <pre class="brush: python">
+return len(diff) == 2 and diff[0] == diff[1][::-1]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        那么，我的最终解决方案应该是怎样的呢？
+    </div>
+    <div class="answer">
+        <p>
+            您只需将之前所有的提示连接起来，并将代码封装为函数表达式。强烈建议对输入和输出数据使用类型提示。
+        </p>
+        <p>这里是整个解决方案：</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def switch_strings(line: str, result: str) -> bool:
+
+    if line == result:
+        return True
+    if len(line)!= len(result):
+        return False
+    
+    diff = [a + b for a, b in zip(line, result) if a!= b]
+        
+    return len(diff) == 2 and diff[0] == diff[1][::-1]
+        </pre>
+        </div>
+        <p>点击任务菜单<b>Best Solutions</b> ，查看更多有趣的解决方案！</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        谢谢！我现在知道并理解了更多！一切正常！
+    </div>
+    <div class="answer">
+        很高兴听到这个消息👍！
+    </div>
+</div>
+</body>
