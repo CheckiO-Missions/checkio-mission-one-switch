@@ -1,4 +1,4 @@
-<p>
+<p style="text-align: justify;">
     CheckiO platform has a similar mission <a target="_blank" href='https://py.checkio.org/en/mission/verify-anagrams/'>Verify Anagrams</a>,
     but in it you have to determine whether words are anagrams. In this mission, the task will be a little different. You are given two
     strings and need to determine whether you can swap two letters in the first string to get the second string. If so (or words are the same) -
@@ -9,9 +9,9 @@
     <b>"byrt"</b>.
 </p>
 
-<p><strong>Input:</strong> Two strings.</p>
+<p><strong>Input:</strong> Two strings <span translate="no">(str{% if is_js %}ing{% endif %})</span>.</p>
 
-<p><strong>Output:</strong> {% if is_js %}Boolean{% else %}Bool{% endif %}.</p>
+<p><strong>Output:</strong> Logic value <span translate="no">(bool{% if is_js %}ean{% endif %})</span>.</p>
 
 
 
@@ -20,7 +20,7 @@
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 
 </div>
-<p><strong>Precondition:</strong></p>
+<p><strong>Preconditions:</strong></p>
     <li>All letters are in lower case;</li>
     <li>Only letters.</li>
 </p>
