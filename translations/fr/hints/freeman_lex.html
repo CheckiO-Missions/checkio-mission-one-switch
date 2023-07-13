@@ -1,0 +1,94 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Je n'ai aucune idée de la manière de commencer à résoudre cette mission.
+    </div>
+    <div class="answer">
+        <p>
+            Attrapez une idée 💡! Vous devez construire une séquence de paires de caractères au même indice et ne conserver que les paires de caractères différents. Il ne doit y avoir que deux paires palindromiques pour être une chaîne de commutation.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, par quoi dois-je commencer?
+    </div>
+    <div class="answer">
+        <p>
+            D'après la description, les cordes égales sont considérées comme des cordes à un seul commutateur. Vous pouvez également remarquer que la commutation ne change pas la longueur des chaînes, donc si les chaînes données ont des longueurs différentes, elles ne sont certainement pas des chaînes à commutation unique. Corrigeons cela à l'aide de l'instruction <b class="code">if</b>.
+        </p>
+        <pre class="brush: python">
+if line == result:
+    return True
+if len(line)!= len(result):
+    return False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Elle coupe certains cas! Que faire ensuite?
+    </div>
+    <div class="answer">
+        <p>
+            Vous devez maintenant construire une séquence de paires de caractères ayant le même indice. Il existe une fonction intégrée dédiée à cette tâche: <a target="_blank" href="https://www.w3schools.com/python/ref_func_zip.asp">zip()</a>. Interrogez la séquence à l'aide de la boucle <a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for</a>, en affectant chaque élément de la paire à une variable différente.
+        </p>
+        <pre class="brush: python">
+for a, b in zip(line, result)
+        </pre>
+        <p>
+            De cette séquence, vous ne devez conserver que les paires dont les éléments ne sont pas égaux. Ces deux éléments étant des chaînes de caractères, concaténons-les en une seule chaîne et utilisons cette expression comme <a target="_blank" href="https://www.w3schools.com/python/python_lists_comprehension.asp">list comprehension</a>.
+        </p>
+        <pre class="brush: python">
+diff = [a + b for a, b in zip(line, result) if a!= b]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Aidez-moi à terminer la mission.
+    </div>
+    <div class="answer">
+        <p>
+            Réfléchissons à ce que <b class="code">diff</b> doit être dans le cas d'une seule chaîne de caractères. S'il n'y a qu'un seul changement, alors <b class="code">diff</b> ne doit avoir que deux paires de caractères et ces paires doivent être les mêmes mais avec un ordre opposé des caractères: si à un endroit de la chaîne il y a "b" au lieu de "a" (paire concaténée "ba"), alors à un autre endroit il y a une position opposée "a" au lieu de "b". Écrivons-le de la manière suivante.
+        </p>
+        <pre class="brush: python">
+return len(diff) == 2 and diff[0] == diff[1][::-1]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        À quoi devrait ressembler ma solution finale?
+    </div>
+    <div class="answer">
+        <p>
+            Il vous suffit de combiner tous les indices précédents et d'envelopper votre code dans une expression de fonction. Il est fortement recommandé d'utiliser des indications de type pour les données d'entrée et de sortie.
+        </p>
+        <p>Voici la solution complète:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def switch_strings(line: str, result: str) -> bool:
+
+    if line == result:
+        return True
+    if len(line)!= len(result):
+        return False
+    
+    diff = [a + b for a, b in zip(line, result) if a!= b]
+        
+    return len(diff) == 2 and diff[0] == diff[1][::-1]
+        </pre>
+        </div>
+        <p>Cliquez sur <b>Best Solutions</b> dans le menu mission et découvrez de nombreuses autres solutions intéressantes!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Merci beaucoup! Je sais et je comprends mieux maintenant! Tout fonctionne bien!
+    </div>
+    <div class="answer">
+        Heureux de l'apprendre 👍!
+    </div>
+</div>
+</body>
