@@ -1,0 +1,94 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Nie mam pojęcia, jak zacząć rozwiązywać tę misję.
+    </div>
+    <div class="answer">
+        <p>
+            Proszę złapać pomysł 💡! Proszę zbudować ciąg par znaków o tym samym indeksie i zachować tylko pary różnych znaków. Muszą być tylko dwie pary palindromiczne, aby były jednym ciągiem przełączającym.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, od czego powinienem zacząć?
+    </div>
+    <div class="answer">
+        <p>
+            Zgodnie z opisem, równe struny są uważane za struny typu one switch. Proszę również zauważyć, że przełączanie nie zmienia długości ciągów, więc jeśli dane ciągi mają różną długość - zdecydowanie nie są one jednym ciągiem przełączającym. Poprawmy to używając instrukcji <b class="code">if</b>.
+        </p>
+        <pre class="brush: python">
+if line == result:
+    return True
+if len(line)!= len(result):
+    return False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Wycina niektóre przypadki! Co robić dalej?
+    </div>
+    <div class="answer">
+        <p>
+            Teraz trzeba zbudować sekwencję par znaków o tym samym indeksie. Służy do tego specjalna wbudowana funkcja: <a target="_blank" href="https://www.w3schools.com/python/ref_func_zip.asp">zip()</a>. Proszę wykonać iterację po sekwencji za pomocą pętli <a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for</a>, przypisując każdy element pary do innej zmiennej.
+        </p>
+        <pre class="brush: python">
+for a, b in zip(line, result)
+        </pre>
+        <p>
+            Z tej sekwencji należy zachować tylko pary, w których elementy nie są równe. Oba te elementy są ciągami znaków, więc połączmy je w jeden ciąg i użyjmy tego wyrażenia jako <a target="_blank" href="https://www.w3schools.com/python/python_lists_comprehension.asp">list comprehension</a>.
+        </p>
+        <pre class="brush: python">
+diff = [a + b for a, b in zip(line, result) if a!= b]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Proszę mi pomóc ukończyć misję.
+    </div>
+    <div class="answer">
+        <p>
+            Zastanówmy się, co musi być <b class="code">diff</b> w przypadku ciągów z jednym przełącznikiem. Jeśli jest to tylko jeden switch, to <b class="code">diff</b> musi mieć tylko dwie pary znaków i te pary muszą być takie same, ale z odwrotną kolejnością znaków: jeśli w jednym miejscu ciągu jest "b" zamiast "a" (skonkatenowana para "ba"), to w innym miejscu jest odwrotna pozycja "a" zamiast "b". Zapiszmy to w następujący sposób.
+        </p>
+        <pre class="brush: python">
+return len(diff) == 2 and diff[0] == diff[1][::-1]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Jak więc powinno wyglądać moje ostateczne rozwiązanie?
+    </div>
+    <div class="answer">
+        <p>
+            Wystarczy połączyć wszystkie poprzednie podpowiedzi i zawinąć kod w wyrażenie funkcyjne. Używanie podpowiedzi typu dla danych wejściowych i wyjściowych jest wysoce zalecane.
+        </p>
+        <p>Oto całe rozwiązanie:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def switch_strings(line: str, result: str) -> bool:
+
+    if line == result:
+        return True
+    if len(line)!= len(result):
+        return False
+    
+    diff = [a + b for a, b in zip(line, result) if a!= b]
+        
+    return len(diff) == 2 and diff[0] == diff[1][::-1]
+        </pre>
+        </div>
+        <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa jak należy!
+    </div>
+    <div class="answer">
+        Miło mi to słyszeć 👍!
+    </div>
+</div>
+</body>
