@@ -1,0 +1,26 @@
+<p style="text-align: justify;">
+    Die Plattform CheckiO hat eine ähnliche Aufgabe <a target="_blank" href='https://py.checkio.org/en/mission/verify-anagrams/'>Verify Anagrams</a>,
+    aber darin müssen Sie feststellen, ob Wörter Anagramme sind. In dieser Mission ist die Aufgabe ein wenig anders. Sie erhalten zwei
+    zeichenfolgen und müssen feststellen, ob Sie zwei Buchstaben in der ersten Zeichenfolge vertauschen können, um die zweite Zeichenfolge zu erhalten. Wenn ja (oder die Wörter gleich sind) -
+    geben Sie  zurück <b>{% if is_js %}t{% else %}T{% endif %}rue</b>, wenn nicht - <b>{% if is_js %}f{% else %}F{% endif %}alse</b>.
+</p>
+<p>
+    Zum Beispiel die Zeichenkette <b>"btry"</b>, wenn wir <b>y</b> und <b>t</b> vertauschen, erhalten wir 
+   <b>"byrt"</b>.
+</p>
+
+<p><strong>Eingabe:</strong> Zwei Zeichenketten <span>(str{% if is_js %}ing{% endif %})</span>.</p>
+
+<p><strong>Ausgabe:</strong> Logischer Wert <span>(bool{% if is_js %}ean{% endif %})</span>.</p>
+
+
+
+<div class="for_info_only">
+    <p><strong>Beispiele:</strong></p>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+</div>
+<p><strong>Vorbedingungen:</strong></p>
+    <li>Alle Buchstaben sind klein geschrieben;</li>
+    <li>Nur Buchstaben.</li>
+</p>
