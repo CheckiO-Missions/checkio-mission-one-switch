@@ -1,0 +1,94 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll.
+    </div>
+    <div class="answer">
+        <p>
+            Haben Sie eine Idee 💡! Sie müssen eine Folge von Zeichenpaaren mit demselben Index bilden und nur Paare mit unterschiedlichen Zeichen behalten. Es darf nur zwei palindromische Paare geben, um eine Schalterkette zu bilden.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, womit soll ich anfangen?
+    </div>
+    <div class="answer">
+        <p>
+            Gemäß der Beschreibung werden gleiche Saiten als One-Switch-Saiten betrachtet. Sie werden auch feststellen, dass sich die Länge der Zeichenketten durch die Umschaltung nicht ändert. Wenn die angegebenen Zeichenketten also unterschiedlich lang sind, handelt es sich definitiv nicht um eine einzige Umschaltzeichenkette. Lassen Sie uns das mit der Anweisung <b class="code">if</b> korrigieren.
+        </p>
+        <pre class="brush: python">
+if line == result:
+    return True
+if len(line)!= len(result):
+    return False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Sie schneidet einige Fälle ab! Was ist als nächstes zu tun?
+    </div>
+    <div class="answer">
+        <p>
+            Jetzt müssen Sie eine Folge von Zeichenpaaren mit demselben Index erstellen. Dafür gibt es eine eigene eingebaute Funktion: <a target="_blank" href="https://www.w3schools.com/python/ref_func_zip.asp">zip()</a>. Iterieren Sie über die Sequenz mit der Schleife <a target="_blank" href="https://www.w3schools.com/python/python_for_loops.asp">for</a> und weisen Sie dabei jedes Element des Paares einer anderen Variablen zu.
+        </p>
+        <pre class="brush: python">
+for a, b in zip(line, result)
+        </pre>
+        <p>
+            Aus dieser Sequenz müssen Sie nur die Paare behalten, bei denen die Elemente nicht gleich sind. Da es sich bei beiden Elementen um Strings handelt, können wir sie auch zu einem einzigen String verketten und diesen Ausdruck als <a target="_blank" href="https://www.w3schools.com/python/python_lists_comprehension.asp">list comprehension</a> verwenden.
+        </p>
+        <pre class="brush: python">
+diff = [a + b for a, b in zip(line, result) if a!= b]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Helfen Sie mir, die Mission zu beenden.
+    </div>
+    <div class="answer">
+        <p>
+            Lassen Sie uns darüber nachdenken, was <b class="code">diff</b> im Falle eines Switch-Strings sein muss. Wenn es sich nur um einen Schalter handelt, dann darf <b class="code">diff</b> nur zwei Zeichenpaare haben und diese Paare müssen gleich sein, aber in umgekehrter Reihenfolge: Wenn an einer Stelle der Zeichenfolge "b" statt "a" steht (verkettetes Paar "ba"), dann steht an einer anderen Stelle "a" statt "b". Lassen Sie es uns folgendermaßen schreiben.
+        </p>
+        <pre class="brush: python">
+return len(diff) == 2 and diff[0] == diff[1][::-1]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Wie sollte also meine endgültige Lösung aussehen?
+    </div>
+    <div class="answer">
+        <p>
+            Sie müssen nur alle vorherigen Hinweise zusammenführen und Ihren Code in einen Funktionsausdruck verpacken. Die Verwendung von Typ-Hinweisen für Eingabe- und Ausgabedaten wird dringend empfohlen.
+        </p>
+        <p>Hier ist die gesamte Lösung:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def switch_strings(line: str, result: str) -> bool:
+
+    if line == result:
+        return True
+    if len(line)!= len(result):
+        return False
+    
+    diff = [a + b for a, b in zip(line, result) if a!= b]
+        
+    return len(diff) == 2 and diff[0] == diff[1][::-1]
+        </pre>
+        </div>
+        <p>Klicken Sie auf <b>Best Solutions</b> im Menü Mission und sehen Sie sich viele andere interessante Lösungen an!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Vielen Dank! Ich weiß und verstehe jetzt mehr! Alles funktioniert einwandfrei!
+    </div>
+    <div class="answer">
+        Freut mich zu hören 👍!
+    </div>
+</div>
+</body>
